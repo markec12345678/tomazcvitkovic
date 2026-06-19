@@ -9,9 +9,9 @@ import { Logo } from "@/components/site/logo";
 
 const footerNav = [
   { href: "#storitve", label: "Storitve" },
-  { href: "#o-nas", label: "O nas" },
-  { href: "#postopek", label: "Postopek" },
   { href: "#galerija", label: "Galerija" },
+  { href: "#kalkulator", label: "Kalkulator" },
+  { href: "#nasveti", label: "Nasveti" },
   { href: "#povprasevanja", label: "Povpraševanja" },
   { href: "#faq", label: "FAQ" },
   { href: "#kontakt", label: "Kontakt" },

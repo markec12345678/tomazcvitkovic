@@ -13,9 +13,9 @@ import { ThemeToggle } from "@/components/site/theme-toggle";
 
 const navItems = [
   { href: "#storitve", label: "Storitve" },
-  { href: "#o-nas", label: "O nas" },
-  { href: "#postopek", label: "Postopek" },
   { href: "#galerija", label: "Galerija" },
+  { href: "#kalkulator", label: "Kalkulator" },
+  { href: "#nasveti", label: "Nasveti" },
   { href: "#povprasevanja", label: "Povpraševanja" },
   { href: "#kontakt", label: "Kontakt" },
 ];

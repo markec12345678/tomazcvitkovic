@@ -170,6 +170,49 @@ export function Contact() {
             </Card>
           </motion.div>
         </div>
+
+        {/* Embedded zemljevid */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-6"
+        >
+          <Card className="overflow-hidden border-border/80 p-0">
+            <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold">Naslov obrti na zemljevidu</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {company.address.street}, {company.address.postal} {company.address.city} — {company.address.region}
+                  </p>
+                </div>
+              </div>
+              <a
+                href={mapsLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold transition-colors hover:bg-secondary"
+              >
+                <MapPin className="h-4 w-4 text-accent" />
+                Odpri v Google Maps
+              </a>
+            </div>
+            <div className="relative aspect-[16/9] w-full bg-muted sm:aspect-[21/9]">
+              <iframe
+                title="Zemljevid — Tomaž Cvitkovič s.p., Griblje"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=15.28%2C45.61%2C15.36%2C45.66&layer=mapnik&marker=45.6325%2C15.3147"
+                className="h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );

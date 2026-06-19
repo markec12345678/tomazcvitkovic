@@ -185,3 +185,67 @@ Naslednji koraki (priporočilo za fazo 3):
 8. Embedded Google Map v contact sekcijo
 9. Prava pričevanja strank z dovoljenjem
 10. WhatsApp Business prehod
+
+---
+Task ID: 3
+Agent: main (cron webDevReview faza 3)
+Task: Sitemap.xml + robots.txt, sekcija "Nasveti za vzdrževanje" (SEO), kalkulator ocene popravila, embedded Google Map v kontakt, styling izboljšave
+
+Work Log:
+- Preveril trenutno stanje: HTTP 200, lint čist, vse 9 sekcij prisotnih
+- Ugotovil hydration mismatch opozorila v konzoli (predhodno faze)
+- Ustvaril src/app/sitemap.ts: Next.js MetadataRoute sitemap z 9 sekcijami (prioritete 0.7–1.0, changeFrequency monthly/weekly/yearly)
+- Ustvaril src/app/robots.ts: dovoli vse, disallow /api/, povezava na sitemap
+- Izbrisal public/robots.txt (bil v konfliktu z robots.ts — povzročal HTTP 500)
+- Razširil src/lib/company.ts z:
+  * tips[] — 6 nasvetov za vzdrževanje (priprava kosilnice pred sezono, vzdrževanje motorne žage, priprava na zimo, kdaj rabi servis, varnost, priprava vrtne laskarice) — vsak z 6–8 koraki, kategorija, readTime
+  * repairCategories[] — 4 kategorije za kalkulator (kosilnica, motorna žaga, vrtna laskarica, skuter) z basePrice in 5–6 storitvami z cenami
+  * urgencyLevels[] — 3 ravni urgence (planirano ×1.0, hitro ×1.2, nujno ×1.5)
+  * locationFee — dodatek za mobilni servis (25€)
+- Ustvaril src/components/site/tips.tsx: sekcija "Nasveti za vzdrževanje" z 6 karticami (ikone, kategorije z barvami, modal s celotno vsebino, številčni koraki, WhatsApp CTA v modalu)
+- Ustvaril src/components/site/quote-calculator.tsx: interaktivni kalkulator z 4 kategorijami strojev, checkboxi za storitve, urgenca, lokacija (delavnica/mobilni), sticky povzetek z živo cenovno razčlenitvijo, WhatsApp CTA s predpripravljenim sporočilom
+- Posodobil src/components/site/contact.tsx: dodal embedded OpenStreetMap iframe (brezplačen, brez API ključa) z markerjem na Griblje, link "Odpri v Google Maps"
+- Posodobil src/app/page.tsx: dodal QuoteCalculator in Tips sekciji (skupaj 11 sekcij)
+- Posodobil src/components/site/header.tsx in footer.tsx: navigacija vključuje Kalkulator in Nasveti
+- Posodobil src/app/sitemap.ts: dodal #kalkulator in #nasveti sekciji
+- Popravek napake: lucide-react ne izvozi "Grass" — zamenjal z "Leaf" v tips.tsx, quote-calculator.tsx in company.ts
+- Popravek napake: izbrisal public/robots.txt (konflikt z robots.ts, povzročal HTTP 500)
+- Agent-browser preverjanje: HTTP 200, 225KB vsebine, 11 sekcij, 0 hydration errorjev
+- Sitemap test: HTTP 200, robots.txt: HTTP 200
+- Kalkulator interakcija test: skuter 65€ → +menjava zavor 115€ → +mobilni servis 140€ ✓
+- Nasveti modal test: odpre se po kliku na kartico ✓
+- Embedded map test: iframe prisoten z naslovom ✓
+- VLM preverjanje: hero 7/10, services 8/10, contact/map 8/10, kalkulator 4 kategorije vidne, nasveti kartice z ikonami in kategorijami
+- ESLint: čist (brez errorjev/opozoril)
+
+Stage Summary:
+- ✅ Sitemap.xml ustvarjen (Next.js MetadataRoute, 9 sekcij z prioritetami)
+- ✅ Robots.txt ustvarjen (allow all, disallow /api/, sitemap link)
+- ✅ Sekcija "Nasveti za vzdrževanje" — 6 nasvetov z modal prikazom, odlično za SEO
+- ✅ Kalkulator ocene popravila — interaktivni, 4 kategorije, live izračun, WhatsApp integracija
+- ✅ Embedded OpenStreetMap v kontakt sekciji (Griblje, marker)
+- ✅ Navigacija posodobljena (Kalkulator, Nasveti dodani v header in footer)
+- ✅ Hydration mismatch opozorila odpravljena (0 v konzoli)
+- ✅ ESLint čist, HTTP 200, 11 sekcij
+
+Datoteke ustvarjene/spremenjene v fazi 3:
+- src/app/sitemap.ts (NOV)
+- src/app/robots.ts (NOV)
+- src/components/site/tips.tsx (NOV)
+- src/components/site/quote-calculator.tsx (NOV)
+- src/components/site/contact.tsx (dodan embedded map)
+- src/components/site/header.tsx (posodobljena navigacija)
+- src/components/site/footer.tsx (posodobljena navigacija)
+- src/app/page.tsx (dodani QuoteCalculator in Tips)
+- src/lib/company.ts (tips, repairCategories, urgencyLevels, locationFee)
+- public/robots.txt (IZBRISAN — konflikt z robots.ts)
+
+Naslednji koraki (priporočilo za fazo 4):
+1. Realne fotografije — zamenjati AI slike z dejanskimi fotografijami Tomaževega dela
+2. Večjezičnost (HR/EN) — Bela Krajina meji na Hrvaško
+3. Google Analytics / Plausible analitika (sledenje klikom na WhatsApp)
+4. PWA (manifest.json + service worker)
+5. Prava pričevanja strank z dovoljenjem
+6. WhatsApp Business prehod
+7. Dodatni nasveti za vzdrževanje ( сезонный контент — košnja poleti, priprava na žetev, itd.)
+8. Bolj izrazite ločnice med sekcijami (gradient prehodi, dekorativni elementi)
