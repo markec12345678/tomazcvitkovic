@@ -234,3 +234,110 @@ export const testimonials = [
 export function getService(id: string): Service | undefined {
   return services.find((s) => s.id === id);
 }
+
+// === GALLERY ===
+export type GalleryCategory = {
+  id: string;
+  label: string;
+  short: string;
+};
+
+export const galleryCategories: GalleryCategory[] = [
+  { id: "vse", label: "Vse", short: "Vse kategorije" },
+  { id: "kosilnice", label: "Kosilnice", short: "Popravila kosilnic za travo" },
+  {
+    id: "vrtne-laskarice",
+    label: "Vrtne laskarice",
+    short: "Popravila vrtne laskarice in motokultivatorjev",
+  },
+  {
+    id: "motorne-zege",
+    label: "Motorne žage",
+    short: "Popravila verižnih motornih žag",
+  },
+  {
+    id: "skuterji",
+    label: "Skuterji",
+    short: "Popravila skuterjev in motornih koles",
+  },
+];
+
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  category: string; // ujema se z galleryCategories.id (razen "vse")
+  span?: string; // tailwind col-span utility
+};
+
+export const galleryImages: GalleryImage[] = [
+  // Kosilnice
+  {
+    src: "/gallery/kosilnice-1.jpg",
+    alt: "Popravilo bencinske kosilnice na delovni mizi v delavnici",
+    title: "Bencinska kosilnica",
+    caption: "Diagnostika in popravilo motorja",
+    category: "kosilnice",
+    span: "sm:col-span-2",
+  },
+  {
+    src: "/gallery/kosilnice-2.jpg",
+    alt: "Samohodna kosilnica na servisu, brusenje nožev in pregled",
+    title: "Samohodna kosilnica",
+    caption: "Brusenje nožev in servis",
+    category: "kosilnice",
+  },
+  // Vrtne laskarice / freze / motokultivatorji
+  {
+    src: "/gallery/vrtne-laskarice-1.jpg",
+    alt: "Popravilo vrtne laskarice, delo na nožih in motorju",
+    title: "Vrtna laskarica",
+    caption: "Popravilo nožev in motorja",
+    category: "vrtne-laskarice",
+  },
+  {
+    src: "/gallery/vrtne-laskarice-2.jpg",
+    alt: "Servis majhnega motokultivatorja, menjava karburatorja",
+    title: "Motokultivator",
+    caption: "Menjava karburatorja",
+    category: "vrtne-laskarice",
+    span: "sm:col-span-2",
+  },
+  // Motorne žage
+  {
+    src: "/gallery/motorne-zege-1.jpg",
+    alt: "Popravilo verižne motorne žage, demontaža verige in vodila",
+    title: "Verižna žaga",
+    caption: "Demontaža verige in vodila",
+    category: "motorne-zege",
+  },
+  {
+    src: "/gallery/motorne-zege-2.jpg",
+    alt: "Servis motorne žage, čiščenje zobnika in verige",
+    title: "Servis žage",
+    caption: "Čiščenje zobnika in verige",
+    category: "motorne-zege",
+  },
+  // Skuterji / motorna kolesa
+  {
+    src: "/gallery/skuterji-1.jpg",
+    alt: "Popravilo skuterja v delavnici, dviganjen na stojalu, delo na motorju",
+    title: "Skuter",
+    caption: "Popravilo motorja",
+    category: "skuterji",
+    span: "sm:col-span-2",
+  },
+  {
+    src: "/gallery/skuterji-2.jpg",
+    alt: "Servis skuterja, menjava koles ali zavor",
+    title: "Servis skuterja",
+    caption: "Menjava zavor in koles",
+    category: "skuterji",
+  },
+];
+
+export function getGalleryByCategory(catId: string): GalleryImage[] {
+  if (catId === "vse") return galleryImages;
+  return galleryImages.filter((img) => img.category === catId);
+}

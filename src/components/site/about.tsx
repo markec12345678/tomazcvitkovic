@@ -37,42 +37,42 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-primary p-8 text-primary-foreground shadow-industrial">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-zinc-900 p-8 text-zinc-50 dark:bg-zinc-950 dark:text-zinc-100 shadow-industrial">
               <div className="pointer-events-none absolute inset-0 bg-grid opacity-10" aria-hidden="true" />
               <div className="relative">
-                <p className="text-xs font-medium uppercase tracking-widest text-primary-foreground/60">
+                <p className="text-xs font-medium uppercase tracking-widest text-zinc-50/60">
                   Tomaž Cvitkovič s.p.
                 </p>
                 <h3 className="mt-2 text-2xl font-bold">
                   Popravila strojev in zaključna gradbena dela
                 </h3>
-                <p className="mt-3 text-sm text-primary-foreground/80">
+                <p className="mt-3 text-sm text-zinc-50/80">
                   {company.address.street}, {company.address.postal} {company.address.city}
                   <br />
                   {company.address.municipality}, {company.address.region}
                 </p>
 
                 <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
-                  <div className="rounded-lg bg-primary-foreground/10 p-3">
-                    <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <div className="rounded-lg bg-zinc-50/10 p-3">
+                    <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                       Davčna št.
                     </dt>
                     <dd className="mt-0.5 font-semibold">{company.registry.vat}</dd>
                   </div>
-                  <div className="rounded-lg bg-primary-foreground/10 p-3">
-                    <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <div className="rounded-lg bg-zinc-50/10 p-3">
+                    <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                       Matična št.
                     </dt>
                     <dd className="mt-0.5 font-semibold">{company.registry.maticna}</dd>
                   </div>
-                  <div className="rounded-lg bg-primary-foreground/10 p-3">
-                    <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <div className="rounded-lg bg-zinc-50/10 p-3">
+                    <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                       Telefon
                     </dt>
                     <dd className="mt-0.5 font-semibold">{company.contact.phoneDisplay}</dd>
                   </div>
-                  <div className="rounded-lg bg-primary-foreground/10 p-3">
-                    <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <div className="rounded-lg bg-zinc-50/10 p-3">
+                    <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                       Od leta
                     </dt>
                     <dd className="mt-0.5 font-semibold">{company.since}</dd>
@@ -83,7 +83,7 @@ export function About() {
                   href={mapsLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-md border border-primary-foreground/25 bg-primary-foreground/5 px-3 py-2 text-sm font-medium transition-colors hover:bg-primary-foreground/15"
+                  className="mt-6 inline-flex items-center gap-2 rounded-md border border-zinc-50/25 bg-zinc-50/5 px-3 py-2 text-sm font-medium transition-colors hover:bg-zinc-50/15"
                 >
                   <MapPin className="h-4 w-4 text-accent" />
                   Pokaži na zemljevidu

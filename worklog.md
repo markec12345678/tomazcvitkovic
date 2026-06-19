@@ -117,3 +117,71 @@ bun run dev          # Next.js na portu 3000
 bun run lint         # ESLint preverba
 # V brskalniku: http://localhost:3000 (uporabnik vidi preko Preview Panel)
 ```
+
+---
+Task ID: 2
+Agent: main (cron webDevReview faza 2)
+Task: Dodati JSON-LD LocalBusiness structured data, dark mode toggle, galerijo s kategorijami in lightbox, ter zamenjati AI slike z novimi (kosilnice, vrtne laskarice, motorne žage, skuterji)
+
+Work Log:
+- Izbrisal stare AI slike (workshop.jpg, welding.jpg, tractor-repair.jpg, metal-fence.jpg) iz public/gallery/
+- Generiral 8 novih AI slik (2 na kategorijo): kosilnice-1/2, vrtne-laskarice-1/2, motorne-zege-1/2, skuterji-1/2
+- Posodobil src/lib/company.ts: dodal galleryCategories (5 kategorij), galleryImages (8 slik z metapodatki), getGalleryByCategory() helper
+- Popolnoma preuredil src/components/site/gallery.tsx: filter tabs (Vse/Kosilnice/Vrtne laskarice/Motorne žage/Skuterji), framer-motion animacije, lightbox modal z navigacijo (←/→/ESC), števec slik, hover povečava ikona
+- Ustvaril src/components/site/json-ld.tsx: LocalBusiness + HomeAndConstructionBusiness structured data z naslovom, telefonom, geo, openingHours, areaServed (10 krajev), hasOfferCatalog (6 storitev), sameAs povezave na CompanyWall/Bizi
+- Ustvaril src/components/site/theme-provider.tsx (next-themes wrapper)
+- Ustvaril src/components/site/theme-toggle.tsx: Sun/Moon ikona z animacijo, hydration-safe (mounted check)
+- Posodobil src/app/layout.tsx: dodal ThemeProvider (attribute="class", defaultTheme="light", enableSystem), JsonLd komponento, suppressHydrationWarning na <html>, posodobil metadata keywords z novimi kategorijami popravil
+- Posodobil src/components/site/header.tsx: dodal ThemeToggle v top bar (med tel in WhatsApp) in v mobilni Sheet meni
+- Popravil src/components/site/hero.tsx: bg-primary → bg-zinc-900 dark:bg-zinc-950 (fiksno temen hero v obeh načinih), primary-foreground → zinc-50
+- Popravil src/components/site/quote-form.tsx: enako (fiksno temna sekcija povpraševanja)
+- Popravil src/components/site/footer.tsx: enako (fiksno temen footer)
+- Popravil src/components/site/about.tsx: enako (fiksno temna kartica o podjetju)
+- Popravil src/components/site/gallery.tsx: overlay in figcaption fiksno temni (zinc-900) za najboljšo berljivost nad slikami
+- Popravil src/app/globals.css dark način: background 0.18→0.16, foreground 0.96→0.97, muted-foreground 0.72→0.8 (veliko bolj berljivo), border 10%→14%, input 14%→18% (boljši kontrast)
+- Agent-browser preverjanje: HTTP 200, naslov pravilen, brez napak, brez console errorjev
+- Filter tabs test: "Kosilnice" → 2 sliki, "Vse" → 8 slik ✓
+- Dark mode toggle test: light → dark preklop uspešen ✓
+- Lightbox test: dialog se odpre po kliku na sliko ✓
+- JSON-LD test: LocalBusiness z 6 storitvami, naslov, telefon ✓
+- VLM preverjanje light mode: profesionalen dizajn, galerija z filter tabs deluje ✓
+- VLM preverjanje dark mode (po popravku kontrasta): besedilo berljivo, kontrast rešen, profesionalen ✓
+- VLM preverjanje lightbox: čist dizajn, navigacijske puščice vidne ✓
+- ESLint: čist (brez errorjev/opozoril)
+
+Stage Summary:
+- ✅ JSON-LD LocalBusiness structured data dodan (LocalBusiness + HomeAndConstructionBusiness, 6 storitev v OfferCatalog, 10 krajev areaServed, openingHours, geo, sameAs)
+- ✅ Dark mode toggle implementiran (next-themes, ThemeToggle v header + mobilni meni, hydration-safe)
+- ✅ Galerija preurejena s 5 kategorijami (filter tabs) + lightbox modal z navigacijo (←/→/ESC)
+- ✅ 8 novih AI slik (kosilnice ×2, vrtne laskarice ×2, motorne žage ×2, skuterji ×2) — stare 4 slike odstranjene
+- ✅ Dark mode kontrast izboljšan (muted-foreground 0.72→0.8, border/input višji)
+- ✅ Hero/QuoteForm/Footer/About sekcije fiksno temne v obeh načinih (neodvisne od theme)
+- ✅ Vse komponente prilagojene za dark mode
+- ✅ ESLint čist, HTTP 200, brez runtime napak
+
+Datoteke ustvarjene/spremenjene v fazi 2:
+- src/components/site/json-ld.tsx (NOV)
+- src/components/site/theme-provider.tsx (NOV)
+- src/components/site/theme-toggle.tsx (NOV)
+- src/components/site/gallery.tsx (popolnoma preurejen)
+- src/components/site/header.tsx (dodan ThemeToggle)
+- src/components/site/hero.tsx (fiksno temne barve)
+- src/components/site/quote-form.tsx (fiksno temne barve)
+- src/components/site/footer.tsx (fiksno temne barve)
+- src/components/site/about.tsx (fiksno temne barve)
+- src/app/layout.tsx (ThemeProvider + JsonLd)
+- src/app/globals.css (dark mode kontrast izboljšave)
+- src/lib/company.ts (galerijske kategorije in slike)
+- public/gallery/*.jpg (8 novih slik, stare izbrisane)
+
+Naslednji koraki (priporočilo za fazo 3):
+1. Realne fotografije — zamenjati AI slike z dejanskimi fotografijami Tomaževega dela
+2. Sitemap.xml + robots.txt optimizacija za SEO
+3. Kalkulator ocene popravila (preprost vprašalnik)
+4. Blog/sekcija z nasveti za vzdrževanje strojev (pred sezono, mazanje, priprava na zimo) — dobro za SEO
+5. Večjezičnost (HR/EN) — Bela Krajina meji na Hrvaško
+6. Google Analytics / Plausible analitika (sledenje klikom na WhatsApp)
+7. PWA (manifest.json + service worker)
+8. Embedded Google Map v contact sekcijo
+9. Prava pričevanja strank z dovoljenjem
+10. WhatsApp Business prehod

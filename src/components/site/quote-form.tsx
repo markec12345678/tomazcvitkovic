@@ -107,7 +107,7 @@ export function QuoteForm() {
   return (
     <section
       id="povprasevanja"
-      className="section-pad scroll-mt-16 bg-primary text-primary-foreground"
+      className="section-pad scroll-mt-16 bg-zinc-900 text-zinc-50 dark:bg-zinc-950 dark:text-zinc-100"
     >
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-[0.08]" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -120,17 +120,17 @@ export function QuoteForm() {
             transition={{ duration: 0.5 }}
             className="flex flex-col justify-center"
           >
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-zinc-50/20 bg-zinc-50/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <MessageCircle className="h-3.5 w-3.5 text-accent" />
               Povpraševanje
             </span>
             <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               Izpolnite obrazec — WhatsApp odpre sam
             </h2>
-            <p className="mt-4 text-pretty leading-relaxed text-primary-foreground/80">
+            <p className="mt-4 text-pretty leading-relaxed text-zinc-50/80">
               Nobene registracije, nobene baze. Izpolnite podatke, kliknite gumb in odprl se bo
               WhatsApp s pripravljenim sporočilom za{" "}
-              <strong className="text-primary-foreground">Tomaža ({company.contact.phoneDisplay})</strong>.
+              <strong className="text-zinc-50">Tomaža ({company.contact.phoneDisplay})</strong>.
               Samo še pritisnete pošlji — in zadeva je na poti.
             </p>
 
@@ -140,24 +140,24 @@ export function QuoteForm() {
                 "Poštena ocena brez obveznosti",
                 "Mobilni servis po dogovoru",
               ].map((line) => (
-                <li key={line} className="flex items-start gap-2.5 text-primary-foreground/85">
+                <li key={line} className="flex items-start gap-2.5 text-zinc-50/85">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   <span>{line}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 p-4">
-              <p className="text-xs uppercase tracking-wide text-primary-foreground/60">
+            <div className="mt-8 rounded-xl border border-zinc-50/15 bg-zinc-50/5 p-4">
+              <p className="text-xs uppercase tracking-wide text-zinc-50/60">
                 Raje pokličete?
               </p>
               <a
                 href={`tel:${company.contact.phoneIntl}`}
-                className="mt-1 block text-2xl font-bold tracking-tight text-primary-foreground transition-colors hover:text-accent"
+                className="mt-1 block text-2xl font-bold tracking-tight text-zinc-50 transition-colors hover:text-accent"
               >
                 {company.contact.phoneDisplay}
               </a>
-              <p className="mt-1 text-xs text-primary-foreground/60">
+              <p className="mt-1 text-xs text-zinc-50/60">
                 {company.hours[0].day}: {company.hours[0].time}
               </p>
             </div>

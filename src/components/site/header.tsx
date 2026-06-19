@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { company } from "@/lib/company";
 import { buildWhatsAppLink, telLink } from "@/lib/whatsapp";
 import { Logo } from "@/components/site/logo";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 
 const navItems = [
   { href: "#storitve", label: "Storitve" },
@@ -67,6 +68,7 @@ export function SiteHeader() {
 
         {/* CTA */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
             href={telLink()}
             className="hidden h-10 w-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary md:inline-flex"
@@ -121,6 +123,12 @@ export function SiteHeader() {
                   ))}
                 </nav>
                 <div className="mt-auto flex flex-col gap-2 border-t border-border pt-4">
+                  <div className="flex items-center justify-between rounded-md bg-secondary/60 px-3 py-2">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Tema
+                    </span>
+                    <ThemeToggle />
+                  </div>
                   <Button asChild variant="outline">
                     <a href={telLink()}>
                       <Phone className="mr-2 h-4 w-4" />

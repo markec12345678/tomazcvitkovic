@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="vrh"
-      className="relative overflow-hidden bg-primary text-primary-foreground"
+      className="relative overflow-hidden bg-zinc-900 text-zinc-50 dark:bg-zinc-950 dark:text-zinc-100"
       aria-label="Uvodna ponudba"
     >
       {/* Ozadje: kovinska mreža + akcentne lise */}
@@ -45,7 +45,7 @@ export function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-3 py-1 text-xs font-medium uppercase tracking-wider backdrop-blur"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-50/20 bg-zinc-50/10 px-3 py-1 text-xs font-medium uppercase tracking-wider backdrop-blur"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -73,9 +73,9 @@ export function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg"
+              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-50/80 sm:text-lg"
             >
-              Sem <strong className="font-semibold text-primary-foreground">Tomaž Cvitkovič</strong>,
+              Sem <strong className="font-semibold text-zinc-50">Tomaž Cvitkovič</strong>,
               samostojni podjetnik iz Griblje (občina Metlika). Popravim stroj, zvarim konstrukcijo
               in zaključim gradbeno delo — pošteno, čisto in brez odlašanja.
             </motion.p>
@@ -101,7 +101,7 @@ export function Hero() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                className="border-zinc-50/30 bg-transparent text-zinc-50 hover:bg-zinc-50/10 hover:text-zinc-50"
               >
                 <a href={telLink()}>
                   <Phone className="mr-2 h-5 w-5" />
@@ -116,12 +116,12 @@ export function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-primary-foreground/15 pt-6 sm:grid-cols-3"
+              className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-zinc-50/15 pt-6 sm:grid-cols-3"
             >
               <div className="flex items-start gap-2">
                 <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                     Registrirano
                   </dt>
                   <dd className="text-sm font-semibold">od leta {company.since}</dd>
@@ -130,7 +130,7 @@ export function Hero() {
               <div className="flex items-start gap-2">
                 <Clock className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                     Odziv
                   </dt>
                   <dd className="text-sm font-semibold">v 24 urah</dd>
@@ -139,7 +139,7 @@ export function Hero() {
               <div className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-primary-foreground/60">
+                  <dt className="text-xs uppercase tracking-wide text-zinc-50/60">
                     Lokacija
                   </dt>
                   <dd className="text-sm font-semibold">Griblje, Metlika</dd>
@@ -158,10 +158,10 @@ export function Hero() {
           >
             <div className="relative mx-auto max-w-md">
               {/* Kartica "delavnica" */}
-              <div className="relative overflow-hidden rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-6 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-2xl border border-zinc-50/15 bg-zinc-50/5 p-6 backdrop-blur-sm">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-wider text-primary-foreground/60">
+                    <p className="text-xs font-medium uppercase tracking-wider text-zinc-50/60">
                       Trenutno na voljo
                     </p>
                     <p className="mt-1 text-lg font-bold">Termin v roku 1–3 dni</p>
@@ -171,7 +171,7 @@ export function Hero() {
                   </span>
                 </div>
 
-                <div className="my-6 h-px w-full bg-primary-foreground/15" />
+                <div className="my-6 h-px w-full bg-zinc-50/15" />
 
                 <ul className="space-y-3 text-sm">
                   {[
@@ -182,13 +182,13 @@ export function Hero() {
                   ].map((line) => (
                     <li key={line} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      <span className="text-primary-foreground/85">{line}</span>
+                      <span className="text-zinc-50/85">{line}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-6 rounded-lg bg-primary-foreground/10 p-3 text-xs text-primary-foreground/70">
-                  <strong className="text-primary-foreground">Delovni čas:</strong>{" "}
+                <div className="mt-6 rounded-lg bg-zinc-50/10 p-3 text-xs text-zinc-50/70">
+                  <strong className="text-zinc-50">Delovni čas:</strong>{" "}
                   pon–pet 7:00–17:00 · sobota po dogovoru
                 </div>
               </div>

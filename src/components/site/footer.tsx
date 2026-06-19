@@ -21,7 +21,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-border bg-primary text-primary-foreground">
+    <footer className="mt-auto border-t border-border bg-zinc-900 text-zinc-50 dark:bg-zinc-950 dark:text-zinc-100">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12">
           {/* Identiteta */}
@@ -30,12 +30,12 @@ export function SiteFooter() {
               <Logo className="h-9 w-9" />
               <div className="leading-tight">
                 <p className="text-sm font-bold">Tomaž Cvitkovič s.p.</p>
-                <p className="text-[11px] uppercase tracking-wider text-primary-foreground/60">
+                <p className="text-[11px] uppercase tracking-wider text-zinc-50/60">
                   Popravila strojev & zaključna gradbena dela
                 </p>
               </div>
             </div>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-50/75">
               Samostojni podjetnik iz Griblje (občina Metlika). Popravila kmetijske in gozdarske
               mehanizacije, kovinske konstrukcije ter zaključna gradbena dela v Beli krajini in
               okolici.
@@ -53,7 +53,7 @@ export function SiteFooter() {
               </a>
               <a
                 href={telLink()}
-                className="inline-flex items-center gap-1.5 rounded-md border border-primary-foreground/25 px-3 py-2 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-1.5 rounded-md border border-zinc-50/25 px-3 py-2 text-sm font-semibold transition-colors hover:bg-zinc-50/10"
               >
                 <Phone className="h-4 w-4" />
                 Pokliči
@@ -63,7 +63,7 @@ export function SiteFooter() {
 
           {/* Navigacija */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-50/60">
               Navigacija
             </h3>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
@@ -71,7 +71,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-primary-foreground/80 transition-colors hover:text-accent"
+                    className="text-zinc-50/80 transition-colors hover:text-accent"
                   >
                     {item.label}
                   </Link>
@@ -82,7 +82,7 @@ export function SiteFooter() {
 
           {/* Kontakt */}
           <div className="lg:col-span-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-50/60">
               Kontakt
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
@@ -90,7 +90,7 @@ export function SiteFooter() {
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
                   href={telLink()}
-                  className="text-primary-foreground/85 transition-colors hover:text-accent"
+                  className="text-zinc-50/85 transition-colors hover:text-accent"
                 >
                   {company.contact.phoneDisplay}
                 </a>
@@ -99,7 +99,7 @@ export function SiteFooter() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
                   href={mailLink("Povpraševanje")}
-                  className="break-all text-primary-foreground/85 transition-colors hover:text-accent"
+                  className="break-all text-zinc-50/85 transition-colors hover:text-accent"
                 >
                   {company.contact.email}
                 </a>
@@ -110,7 +110,7 @@ export function SiteFooter() {
                   href={mapsLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-foreground/85 transition-colors hover:text-accent"
+                  className="text-zinc-50/85 transition-colors hover:text-accent"
                 >
                   {company.address.street}, {company.address.postal} {company.address.city}
                   <br />
@@ -120,12 +120,12 @@ export function SiteFooter() {
             </ul>
 
             <dl className="mt-4 grid grid-cols-2 gap-2 text-xs">
-              <div className="rounded-md bg-primary-foreground/5 px-3 py-2">
-                <dt className="text-primary-foreground/55">Davčna št.</dt>
+              <div className="rounded-md bg-zinc-50/5 px-3 py-2">
+                <dt className="text-zinc-50/55">Davčna št.</dt>
                 <dd className="font-semibold">{company.registry.vat}</dd>
               </div>
-              <div className="rounded-md bg-primary-foreground/5 px-3 py-2">
-                <dt className="text-primary-foreground/55">Matična št.</dt>
+              <div className="rounded-md bg-zinc-50/5 px-3 py-2">
+                <dt className="text-zinc-50/55">Matična št.</dt>
                 <dd className="font-semibold">{company.registry.maticna}</dd>
               </div>
             </dl>
@@ -133,17 +133,17 @@ export function SiteFooter() {
         </div>
 
         {/* Spodnja vrstica */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 sm:flex-row">
-          <p className="text-center text-xs text-primary-foreground/60 sm:text-left">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-zinc-50/15 pt-6 sm:flex-row">
+          <p className="text-center text-xs text-zinc-50/60 sm:text-left">
             © {year} {company.fullName}. Vse pravice pridržane.
           </p>
           <div className="flex items-center gap-4">
-            <p className="text-xs text-primary-foreground/55">
+            <p className="text-xs text-zinc-50/55">
               Izdelano v Beli krajini 🌲
             </p>
             <a
               href="#vrh"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-primary-foreground/25 transition-colors hover:bg-primary-foreground/10"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-zinc-50/25 transition-colors hover:bg-zinc-50/10"
               aria-label="Na vrh strani"
             >
               <ArrowUp className="h-4 w-4" />
