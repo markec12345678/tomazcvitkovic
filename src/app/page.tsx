@@ -1,31 +1,33 @@
-'use client'
+import { SiteHeader } from "@/components/site/header";
+import { Hero } from "@/components/site/hero";
+import { TrustBar } from "@/components/site/trust-bar";
+import { Services } from "@/components/site/services";
+import { About } from "@/components/site/about";
+import { Process } from "@/components/site/process";
+import { Gallery } from "@/components/site/gallery";
+import { Testimonials } from "@/components/site/testimonials";
+import { FAQ } from "@/components/site/faq";
+import { QuoteForm } from "@/components/site/quote-form";
+import { Contact } from "@/components/site/contact";
+import { SiteFooter } from "@/components/site/footer";
 
 export default function Home() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      gap: '2rem',
-      padding: '1rem'
-    }}>
-      <div style={{
-        position: 'relative',
-        width: '6rem',
-        height: '6rem'
-      }}>
-        <img
-          src="/logo.svg"
-          alt="Z.ai Logo"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain'
-          }}
-        />
-      </div>
+    <div className="flex min-h-screen flex-col bg-background">
+      <SiteHeader />
+      <main className="flex-1">
+        <Hero />
+        <TrustBar />
+        <Services />
+        <About />
+        <Process />
+        <Gallery />
+        <Testimonials />
+        <QuoteForm />
+        <FAQ />
+        <Contact />
+      </main>
+      <SiteFooter />
     </div>
-  )
+  );
 }
